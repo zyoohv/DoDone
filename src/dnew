@@ -13,7 +13,7 @@ dtodayear=`date '+%Y'`
 
 if [ -e $DPATH/task/"$dtodayday-$dtodaymon-$dtodayear" ]
 then
-	echo "there have exist today's task file !"
+	#echo "there have exist today's task file !"
 	exit
 fi
 
