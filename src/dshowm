@@ -1,0 +1,5 @@
+#! /bin/bash
+
+$DPATH/bin/Show $DPATH/uesr/dmonth/log $DPATH/uesr/dmonth/all/ $DPATH/uesr/dmonth/finish/ $DPATH/uesr/showbuf
+
+cat $DPATH/uesr/showbuf

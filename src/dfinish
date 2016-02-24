@@ -1,0 +1,30 @@
+#! /bin/bash
+
+echo "input the task number you have finished please:"
+
+read str
+
+dtodayday=`date '+%d'`
+dtodaymon=`date '+%b'`
+dtodayear=`date '+%Y'`
+
+if [ ! -e $DPATH/task/"$dtodayday-$dtodaymon-$dtodayear" ]
+then
+	echo "error : can't find the file"
+	exit
+fi
+
+$DPATH/bin/Sortfile $DPATH/task/"$dtodayday-$dtodaymon-$dtodayear" $str
+
+read num < $DPATH/uesr/dday/finish/"$dtodayday-$dtodaymon-$dtodayear"
+num=$[ $num + 1 ]
+echo $num > $DPATH/uesr/dday/finish/"$dtodayday-$dtodaymon-$dtodayear"
+
+read num < $DPATH/uesr/dmonth/finish/"$dtodaymon-$dtodayear"
+num=$[ $num + 1 ]
+echo $num > $DPATH/uesr/dmonth/finish/"$dtodaymon-$dtodayear"
+
+read num < $DPATH/uesr/dyear/finish/"$dtodayear"
+num=$[ $num + 1 ]
+echo $num > $DPATH/uesr/dyear/finish/"$dtodayear"
+

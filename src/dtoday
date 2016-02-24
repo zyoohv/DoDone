@@ -1,0 +1,13 @@
+#! /bin/bash
+
+dtodayday=`date '+%d'`
+dtodaymon=`date '+%b'`
+dtodayear=`date '+%Y'`
+
+if [ ! -e $DPATH/task/"$dtodayday-$dtodaymon-$dtodayear" ]
+then
+	echo "sorry, can't find the file"
+	exit
+fi
+
+cat $DPATH/task/"$dtodayday-$dtodaymon-$dtodayear"
