@@ -1,0 +1,78 @@
+# DoDone1.0
+
+1.debug:type wrong number in dfinish, it's steal count to finish
+2.add:dtomonth dtoyear task, but can have no count
+3.new file tree:
+	DoDone-	LICENSE
+
+		README.md(including how to use it)
+
+		setting		/	set task in week
+				/	format:
+				/		WEK 	-all this week will add task
+				/		Mon	-all Monday will add task
+				/		Tue	-all Tuesday will add task
+				/		Wed	-all Wednesday will add task
+				/		Thu	-all Thursday will add task
+				/		Fri	-all Friday will add task
+				/		Sat	-all Saturday will add task
+				/		Sun	-all Sunday will add task
+
+		update-log	/log all version and updates
+
+		bin-		Sortfile:
+					1.if dfinish : judge whether can finish, or report error
+					2.or else finish a task and sort
+					3.or else add a task and sort
+				Show:
+					1.report about 'dday/dmonth/dyear'
+
+		bash-		dadd:	
+					1.check whether exist the path $PATH/usr/dtask/dday/ and file, or report error
+					2.read the new task and add it, and alter the information in $DPATH/usr/
+					3.log the operation
+				#dclean:
+				#	1.debug and clean all just ok
+				dfinish:
+					1.check whether exist the path $DPATH/usr/dtask/dday and file, or report error
+					2.read the task number and check whether it is right, if not report error
+					3.sign it, and alter the information in $DPATH/usr/
+					4.log the operation
+				dnew:	
+					1.check and establish paths "$DPATH/usr" and all file in it
+					2.establish "$DPATH/usr/dtask/." and initialize it
+					3.log the operation
+				dshowd:
+					1.show the day
+				dshowm:	
+					1.show the month
+				dshowy:	
+					1.show the year
+				dtoday:
+					1.check whether exist "$DPATH/usr/dtask/.", or report error
+					2.show today task
+				dinit:
+					1.check the file "$DPATH/setting", and establish and initialize it
+					2.read from $DPATH/setting and update the today task file
+					3.log the operation
+
+		.usr-		log	/log all operation in bash
+
+				.showtmp	/showtmp
+
+				dday-	dnlog	/log file name
+					all-	/file
+					finish-	/file
+
+				dmonth-	dnlog	/log file name
+					all-	/file
+					finish-	/file
+
+				dyear-	dnlog	/log file name
+					all-	/file
+					finish-	/file
+
+				dtask-	dday-	/file
+					dmonth-	/file
+					dyear-	/file
+				

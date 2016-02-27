@@ -4,10 +4,10 @@ dtodayday=`date '+%d'`
 dtodaymon=`date '+%b'`
 dtodayear=`date '+%Y'`
 
-if [ ! -e $DPATH/task/"$dtodayday-$dtodaymon-$dtodayear" ]
+if [ ! -e $DPATH/.usr/dtask/dday/"$dtodayday-$dtodaymon-$dtodayear" ]
 then
 	echo "sorry, can't find the file"
 	exit
 fi
 
-cat $DPATH/task/"$dtodayday-$dtodaymon-$dtodayear"
+cat $DPATH/.usr/dtask/dday/"$dtodayday-$dtodaymon-$dtodayear"

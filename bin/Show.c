@@ -1,9 +1,9 @@
 #include <stdio.h>
 #include <string.h>
 
-#define buflen 50
+#define buflen 150
 
-char files[35][15];
+char files[35][115];
 int all[35],finish[35];
 char buf[155];
 
@@ -12,8 +12,6 @@ int main(int argc,char *argv[]){
 	freopen(argv[1],"r",stdin);
 	int cnt = 0;
 	while(scanf("%s",files[cnt]) != EOF) cnt++;
-	//printf("test1----\n");
-	//for(int i=0;i<cnt;i++) printf("%s\n",files[i]);
 
 	int len,slen,tot;
 	for(int i=0;i<cnt;i++){

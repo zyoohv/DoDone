@@ -1,15 +1,32 @@
-# DoDone
+# DoDone1.0
 Manage your tasks more convenient and cool !
 
 ##How to use it
 
 *   add follow words to your path, or bashrc just ok
 
-        export DPATH='the/path/you/put/this/file'
+        export DPATH='the/path/you/put/this/file/DoDone1.0'
         PATH=$PATH:$DPATH/src/
         PATH=$PATH:$DPATH/bin/
 
-*   more information in DoDone
+*   more information
+
+
+    1.dnew:create a new day task file
+
+    2.dtoday:look up the task of today
+
+    3.dadd:add a new task to the task file
+
+    4.dfinish:sign to finish a task
+
+    5.dshowd:show your ability in day
+
+	6.dshowm:show your ability in month
+
+	7.dshowy:show your ability in year
+
+	8.dclean:just use to debug
 
 *   rely environment: gcc bash
 

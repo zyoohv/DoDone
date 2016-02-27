@@ -1,0 +1,5 @@
+#! /bin/bash
+
+$DPATH/bin/Show $DPATH/.usr/dyear/dnlog $DPATH/.usr/dyear/all/ $DPATH/.usr/dyear/finish/ $DPATH/.usr/.showtmp
+
+cat $DPATH/.usr/.showtmp

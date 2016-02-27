@@ -1,0 +1,37 @@
+#! /bin/bash
+
+dtodayday=`date '+%d'`
+dtodaymon=`date '+%b'`
+dtodayear=`date '+%Y'`
+
+if [ ! -e $DPATH/.usr/dtask/dday/"$dtodayday-$dtodaymon-$dtodayear" ]
+then
+	echo "error : can't find the file"
+	exit
+fi
+
+echo "input the task number you have finished please:"
+
+read str
+
+judg=`$DPATH/bin/Sortfile $DPATH/.usr/dtask/dday/"$dtodayday-$dtodaymon-$dtodayear" $str`
+
+if [ $judg = "error" ]
+then
+	echo "input legal number please";
+	exit
+fi
+
+read num < $DPATH/.usr/dday/finish/"$dtodayday-$dtodaymon-$dtodayear"
+num=$[ $num + 1 ]
+echo $num > $DPATH/.usr/dday/finish/"$dtodayday-$dtodaymon-$dtodayear"
+
+read num < $DPATH/.usr/dmonth/finish/"$dtodaymon-$dtodayear"
+num=$[ $num + 1 ]
+echo $num > $DPATH/.usr/dmonth/finish/"$dtodaymon-$dtodayear"
+
+read num < $DPATH/.usr/dyear/finish/"$dtodayear"
+num=$[ $num + 1 ]
+echo $num > $DPATH/.usr/dyear/finish/"$dtodayear"
+
+echo "[`date`]:finish a task" >> $DPATH/.usr/log

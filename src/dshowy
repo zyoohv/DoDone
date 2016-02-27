@@ -1,5 +1,0 @@
-#! /bin/bash
-
-$DPATH/bin/Show $DPATH/uesr/dyear/log $DPATH/uesr/dyear/all/ $DPATH/uesr/dyear/finish/ $DPATH/uesr/showbuf
-
-cat $DPATH/uesr/showbuf

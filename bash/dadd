@@ -1,0 +1,32 @@
+#! /bin/bash
+
+dtodayday=`date '+%d'`
+dtodaymon=`date '+%b'`
+dtodayear=`date '+%Y'`
+
+if [ ! -e $DPATH/.usr/dtask/dday/"$dtodayday-$dtodaymon-$dtodayear" ]
+then
+	echo "error: can't find path or file"
+	exit;
+fi
+
+echo "input your new task please:"
+
+read str
+
+echo "0.$str" >> $DPATH/.usr/dtask/dday/"$dtodayday-$dtodaymon-$dtodayear"
+$DPATH/bin/Sortfile $DPATH/.usr/dtask/dday/"$dtodayday-$dtodaymon-$dtodayear"
+
+read num < $DPATH/.usr/dday/all/"$dtodayday-$dtodaymon-$dtodayear"
+num=$[ $num + 1 ]
+echo $num > $DPATH/.usr/dday/all/"$dtodayday-$dtodaymon-$dtodayear"
+
+read num < $DPATH/.usr/dmonth/all/"$dtodaymon-$dtodayear"
+num=$[ $num + 1 ]
+echo $num > $DPATH/.usr/dmonth/all/"$dtodaymon-$dtodayear"
+
+read num < $DPATH/.usr/dyear/all/"$dtodayear"
+num=$[ $num + 1 ]
+echo $num > $DPATH/.usr/dyear/all/"$dtodayear"
+
+echo "[`date`]:add a new task" >> $DPATH/.usr/log

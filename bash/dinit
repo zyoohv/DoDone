@@ -1,0 +1,52 @@
+#! /bin/bash
+
+if [ ! -e $DPATH/setting ]
+then
+	touch $DPATH/setting
+	echo "# you can edit this file to change the initely task" >> $DPATH/setting
+	echo "# format just like below" >> $DPATH/setting
+	echo "# save it after you changing just ok" >> $DPATH/setting
+	echo "" >> $DPATH/setting
+	echo "WEK" >> $DPATH/setting
+	echo "# you can add the task you think you should do every day" >> $DPATH/setting
+	echo "# example: 1.the first task i should finish" >> $DPATH/setting
+	echo "1.update the dodone every day ~.~" >> $DPATH/setting
+	echo "" >> $DPATH/setting
+	echo "Mon" >> $DPATH/setting
+	echo "# you can add the task you think you should do every Monday" >> $DPATH/setting
+	echo "#example: 1.the first task i should finish" >> $DPATH/setting
+	echo "" >> $DPATH/setting
+	echo "Tue" >> $DPATH/setting
+	echo "# you can add the task you think you should do every Tuesday" >> $DPATH/setting
+	echo "# example: 1.the first task i should finish" >> $DPATH/setting
+	echo "" >> $DPATH/setting
+	echo "Wed" >> $DPATH/setting
+	echo "# you can add the task you think you should do every Wednesday" >> $DPATH/setting
+	echo "# example: 1.the first task i should finish" >> $DPATH/setting
+	echo "" >> $DPATH/setting
+	echo "Thu" >> $DPATH/setting
+	echo "# you can add the task you think you should do every Thursday" >> $DPATH/setting
+	echo "# example: 1.the first task i should finish" >> $DPATH/setting
+	echo "" >> $DPATH/setting
+	echo "Fri" >> $DPATH/setting
+	echo "# you can add the task you think you should do every Friday" >> $DPATH/setting
+	echo "# example: 1.the first task i should finish" >> $DPATH/setting
+	echo "" >> $DPATH/setting
+	echo "Sat" >> $DPATH/setting
+	echo "# you can add the task you think you should do every Saturday" >> $DPATH/setting
+	echo "# example: 1.the first task i should finish" >> $DPATH/setting
+	echo "1.do my homework" >> $DPATH/setting
+	echo "" >> $DPATH/setting
+	echo "Sun" >> $DPATH/setting
+	echo "# you can add the task you think you should do every Sunday" >> $DPATH/setting
+	echo "# example: 1.the first task i should finish" >> $DPATH/setting
+fi
+
+dtodayday=`date '+%d'`
+dtodaymon=`date '+%b'`
+dtodayear=`date '+%Y'`
+dtodaywek=`date '+%a'`
+
+$DPATH/bin/Init $DPATH/setting $DPATH/.usr/dtask/dday/"$dtodayday-$dtodaymon-$dtodayear" "$dtodaywek" $DPATH/.usr/dday/all/"$dtodayday-$dtodaymon-$dtodayear" $DPATH/.usr/dmonth/all/"$dtodaymon-$dtodayear" $DPATH/.usr/dyear/all/"$dtodayear"
+
+echo "[`date`]:initialize the task file" >> $DPATH/.usr/log

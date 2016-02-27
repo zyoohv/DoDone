@@ -10,14 +10,26 @@ int main(int argc, char *argv[]){
 	freopen(argv[1],"r",stdin);
 	int cnt = 0;
 	while(gets(tmp[cnt])) cnt++;
-	//printf("argc = %d\n",argc);
-	//printf("argc = %s\n",argv[0]);
+
 	if(argc == 3){
 		int len = strlen(argv[2]);
 		int del = 0;
+		int flag = 0;
 		for(int i=0;i<len;i++){
+			if(argv[2][i] < '0' || argv[2][i] > '9'){
+				flag = 1;
+				break;
+			}
 			del *= 10;
 			del += argv[2][i] - '0';
+			if(del > cnt){
+				flag = 1;
+				break;
+			}
+		}
+		if(flag == 1){
+			printf("error");
+			return 0;
 		}
 		tmp[del-1][0] = delnum;
 	}

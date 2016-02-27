@@ -1,6 +1,37 @@
 # you can edit this file to change the initely task
-# format just like : number.the task you want to add
+# format just like below
 # save it after you changing just ok
 
-# example :
-# 1.this is the first task you need to finish
+WEK
+# you can add the task you think you should do every day
+# example: 1.the first task i should finish
+1.update the dodone every day ~.~
+
+Mon
+# you can add the task you think you should do every Monday
+#example: 1.the first task i should finish
+
+Tue
+# you can add the task you think you should do every Tuesday
+# example: 1.the first task i should finish
+
+Wed
+# you can add the task you think you should do every Wednesday
+# example: 1.the first task i should finish
+
+Thu
+# you can add the task you think you should do every Thursday
+# example: 1.the first task i should finish
+
+Fri
+# you can add the task you think you should do every Friday
+# example: 1.the first task i should finish
+
+Sat
+# you can add the task you think you should do every Saturday
+# example: 1.the first task i should finish
+1.do my homework
+
+Sun
+# you can add the task you think you should do every Sunday
+# example: 1.the first task i should finish

@@ -1,0 +1,80 @@
+#! /bin/bash
+export DPATH
+
+if [ ! -d $DPATH/.usr ]
+then
+	mkdir $DPATH/.usr/
+
+	touch $DPATH/.usr/log
+	echo "[`date`]:establish path .usr/ and log file" > $DPATH/.usr/log
+	touch $DPATH/.usr/.showtmp
+
+	mkdir $DPATH/.usr/dday/
+	touch $DPATH/.usr/dday/dnlog
+	mkdir $DPATH/.usr/dday/all/
+	mkdir $DPATH/.usr/dday/finish/
+
+	mkdir $DPATH/.usr/dmonth/
+	touch $DPATH/.usr/dmonth/dnlog
+	mkdir $DPATH/.usr/dmonth/all/
+	mkdir $DPATH/.usr/dmonth/finish/
+
+	mkdir $DPATH/.usr/dyear/
+	touch $DPATH/.usr/dyear/dnlog
+	mkdir $DPATH/.usr/dyear/all/
+	mkdir $DPATH/.usr/dyear/finish/
+
+	mkdir $DPATH/.usr/dtask/
+	mkdir $DPATH/.usr/dtask/dday/
+	mkdir $DPATH/.usr/dtask/dmonth/
+	mkdir $DPATH/.usr/dtask/dyear/
+fi
+
+dtodayday=`date '+%d'`
+dtodaymon=`date '+%b'`
+dtodayear=`date '+%Y'`
+
+if [ -e $DPATH/.usr/dtask/dday/"$dtodayday-$dtodaymon-$dtodayear" ]
+then
+	#echo "there have exist today's task file !"
+	exit
+fi
+
+touch $DPATH/.usr/dtask/dday/"$dtodayday-$dtodaymon-$dtodayear"
+
+if [ ! -e $DPATH/.usr/dday/all/"$dtodayday-$dtodaymon-$dtodayear" ]
+then
+	echo "$dtodayday-$dtodaymon-$dtodayear" >> $DPATH/.usr/dday/dnlog
+	touch $DPATH/.usr/dday/all/"$dtodayday-$dtodaymon-$dtodayear"
+	echo "0" > $DPATH/.usr/dday/all/"$dtodayday-$dtodaymon-$dtodayear"
+	touch $DPATH/.usr/dday/finish/"$dtodayday-$dtodaymon-$dtodayear"
+	echo "0" > $DPATH/.usr/dday/finish/"$dtodayday-$dtodaymon-$dtodayear"
+fi
+
+if [ ! -e $DPATH/.usr/dmonth/all/"$dtodaymon-$dtodayear" ]
+then
+	echo "$dtodaymon-$dtodayear" >> $DPATH/.usr/dmonth/dnlog
+	touch $DPATH/.usr/dmonth/all/"$dtodaymon-$dtodayear"
+	echo "0" > $DPATH/.usr/dmonth/all/"$dtodaymon-$dtodayear"
+	touch $DPATH/.usr/dmonth/finish/"$dtodaymon-$dtodayear"
+	echo "0" > $DPATH/.usr/dmonth/finish/"$dtodaymon-$dtodayear"
+fi
+
+if [ ! -e $DPATH/.usr/dyear/all/"$dtodayear" ]
+then
+	echo "$dtodayear" >> $DPATH/.usr/dyear/dnlog
+	touch $DPATH/.usr/dyear/all/"$dtodayear"
+	echo "0" > $DPATH/.usr/dyear/all/"$dtodayear"
+	touch $DPATH/.usr/dyear/finish/"$dtodayear"
+	echo "0" > $DPATH/.usr/dyear/finish/"$dtodayear"
+fi
+
+$DPATH/bash/dinit
+$DPATH/bin/Sortfile $DPATH/.usr/dtask/dday/"$dtodayday-$dtodaymon-$dtodayear"
+
+if [ ! -e $DPATH/.usr/log ]
+then
+	touch $DPATH/.usr/log
+	echo "[`date`]:create new log file" > $DPATH/.usr/log
+fi
+echo "[`date`]:update to a new day" >> $DPATH/.usr/log

@@ -1,0 +1,15 @@
+#! /bin/bash
+
+echo "input your password please : "
+
+read str
+
+if [ $str = "woshizyh" ]
+then
+	if [ -d $DPATH/.usr ]
+	then
+		rm -rf $DPATH/.usr
+	fi
+else
+	echo "wrong password !"
+fi
