@@ -16,9 +16,9 @@ read str
 
 judg=`$DPATH/bin/Sortfile $DPATH/.usr/dtask/dday/"$dtodayday-$dtodaymon-$dtodayear" $str`
 
-if [ $judg = "error" ]
+if [[ $judg = "error" ]]
 then
-	echo "input legal number please";
+	echo "error : the input number is illegal";
 	exit
 fi
 

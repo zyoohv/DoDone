@@ -1,7 +1,9 @@
-# DoDone1.0
-Manage your tasks more convenient and cool !
+#DoDone
+    Manage your tasks more convenient and cool !
 
-##How to use it
+---
+
+###How to use it
 
 *   add follow words to your path, or bashrc just ok
 
@@ -31,4 +33,18 @@ Manage your tasks more convenient and cool !
 *   rely environment: gcc bash
 
 ---
+
+## DoDone1.0
+
+        update:
+        1.debug:type wrong number in dfinish, it's steal count to finish
+        2.add:dtomonth dtoyear task, but can have no count
+        3.new file tree
+
+## DoDone1.0.1
+
+        update:
+        1.fix bug about dfinish
+        2.remove file update-log
+
 ---edit by zyoohv
