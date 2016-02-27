@@ -7,7 +7,7 @@
 
 *   add follow words to your path, or bashrc just ok
 
-        export DPATH='the/path/you/put/this/file/DoDone1.0'
+        export DPATH='the/path/you/put/this/file/DoDone'
         PATH=$PATH:$DPATH/src/
         PATH=$PATH:$DPATH/bin/
 
