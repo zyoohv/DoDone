@@ -10,6 +10,10 @@
         export DPATH='the/path/you/put/this/file/DoDone'
         PATH=$PATH:$DPATH/bash/
         PATH=$PATH:$DPATH/bin/
+        
+*   using cron to manage it
+        
+	$crontab -e
 
 *   more information
 
